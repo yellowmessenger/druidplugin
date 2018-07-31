@@ -39,7 +39,7 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                         "doubleSum": lodash_1["default"].partial(this.validateSimpleAggregator.bind(this), 'doubleSum'),
                         "approxHistogramFold": this.validateApproxHistogramFoldAggregator.bind(this),
                         "hyperUnique": lodash_1["default"].partial(this.validateSimpleAggregator.bind(this), 'hyperUnique'),
-                        "cardinality": lodash_1["default"].partial(this.validateSimpleAggregator.bind(this), 'cardinality'),
+                        "cardinality": lodash_1["default"].partial(this.validateCardinalityAggregator.bind(this), 'cardinality'),
                         "thetaSketch": this.validateThetaSketchAggregator.bind(this)
                     };
                     this.postAggregatorValidators = {
@@ -399,6 +399,16 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                         return "Must provide an output name for " + type + " aggregator.";
                     }
                     if (!target.currentAggregator.fieldName) {
+                        return "Must provide a metric name for " + type + " aggregator.";
+                    }
+                    //TODO - check that fieldName is a valid metric (exists and of correct type)
+                    return null;
+                };
+                DruidQueryCtrl.prototype.validateCardinalityAggregator = function (type, target) {
+                    if (!target.currentAggregator.name) {
+                        return "Must provide an output name for " + type + " aggregator.";
+                    }
+                    if (!target.currentAggregator.fields) {
                         return "Must provide a metric name for " + type + " aggregator.";
                     }
                     //TODO - check that fieldName is a valid metric (exists and of correct type)

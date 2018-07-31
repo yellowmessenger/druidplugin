@@ -468,6 +468,7 @@ export class DruidQueryCtrl extends QueryCtrl {
       return null;
     }
 
+
     validateCardinalityAggregator(type, target) {
         if (!target.currentAggregator.name) {
             return "Must provide an output name for " + type + " aggregator.";

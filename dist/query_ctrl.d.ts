@@ -102,6 +102,7 @@ export declare class DruidQueryCtrl extends QueryCtrl {
     validateRegexFilter(target: any): string;
     validateCountAggregator(target: any): string;
     validateSimpleAggregator(type: any, target: any): string;
+    validateCardinalityAggregator(type: any, target: any): string;
     validateApproxHistogramFoldAggregator(target: any): string;
     validateThetaSketchAggregator(target: any): string;
     validateSimplePostAggregator(type: any, target: any): string;
