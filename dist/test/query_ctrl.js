@@ -29,7 +29,7 @@ var DruidQueryCtrl = (function (_super) {
             "doubleSum": lodash_1.default.partial(this.validateSimpleAggregator.bind(this), 'doubleSum'),
             "approxHistogramFold": this.validateApproxHistogramFoldAggregator.bind(this),
             "hyperUnique": lodash_1.default.partial(this.validateSimpleAggregator.bind(this), 'hyperUnique'),
-            "cardinality": lodash_1.default.partial(this.validateCardinalityAggregator.bind(this), 'cardinality'),
+            "cardinality": this.validateArithmeticPostAggregator.bind(this),
             "thetaSketch": this.validateThetaSketchAggregator.bind(this)
         };
         this.postAggregatorValidators = {
@@ -221,6 +221,7 @@ var DruidQueryCtrl = (function (_super) {
             this.target.aggregators = [];
         }
         this.target.errors = this.validateTarget();
+        console.log(this.target);
         if (!this.target.errors.currentAggregator) {
             //Add new aggregator to the list
             this.target.aggregators.push(this.target.currentAggregator);
