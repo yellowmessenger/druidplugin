@@ -399,7 +399,17 @@ var DruidQueryCtrl = (function (_super) {
             return "Must provide an output name for " + type + " aggregator.";
         }
         if (!target.currentAggregator.fields) {
-            return "Must provide a metric name for " + type + " aggregator.";
+            return "Must provide a list of fields for arithmetic post aggregator.";
+        }
+        else {
+            if (!Array.isArray(target.currentAggregator.fields)) {
+                target.currentAggregator.fields = target.currentAggregator.fields
+                    .split(",")
+                    .map(function (f) { return f.trim(); });
+            }
+            if (target.currentPostAggregator.fields.length < 2) {
+                return "Must provide at least two fields for arithmetic post aggregator.";
+            }
         }
         //TODO - check that fieldName is a valid metric (exists and of correct type)
         return null;
