@@ -418,7 +418,7 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                                 .split(",")
                                 .map(function (f) { return f.trim(); });
                         }
-                        if (target.currentAggregator.fields.length < 2) {
+                        if (target.currentAggregator.fields.length < 1) {
                             return "Must provide at least two fields for arithmetic post aggregator.";
                         }
                     }
