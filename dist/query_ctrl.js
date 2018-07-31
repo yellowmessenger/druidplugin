@@ -231,6 +231,7 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                         this.target.aggregators = [];
                     }
                     this.target.errors = this.validateTarget();
+                    console.log(this.target);
                     if (!this.target.errors.currentAggregator) {
                         //Add new aggregator to the list
                         this.target.aggregators.push(this.target.currentAggregator);

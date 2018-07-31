@@ -29,7 +29,7 @@ var DruidQueryCtrl = (function (_super) {
             "doubleSum": lodash_1.default.partial(this.validateSimpleAggregator.bind(this), 'doubleSum'),
             "approxHistogramFold": this.validateApproxHistogramFoldAggregator.bind(this),
             "hyperUnique": lodash_1.default.partial(this.validateSimpleAggregator.bind(this), 'hyperUnique'),
-            "cardinality": this.validateArithmeticPostAggregator.bind(this),
+            "cardinality": lodash_1.default.partial(this.validateCardinalityAggregator.bind(this), 'cardinality'),
             "thetaSketch": this.validateThetaSketchAggregator.bind(this)
         };
         this.postAggregatorValidators = {
