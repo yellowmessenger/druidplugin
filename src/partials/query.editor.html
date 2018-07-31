@@ -325,7 +325,7 @@
         </div>
         <div ng-switch-when="cardinality">
           <label class="gf-form-label">
-            {{aggregator.type}}:&nbsp;name&nbsp;=&nbsp;{{aggregator.name}},&nbsp;fieldName&nbsp;=&nbsp;{{aggregator.fields[0]}}
+            {{aggregator.type}}:&nbsp;name&nbsp;=&nbsp;{{aggregator.name}},&nbsp;fields&nbsp;=&nbsp;{{postAggregator.fields}}
             <a ng-click="ctrl.editAggregator($index)">
               <i class="fa fa-pencil"></i>
             </a>
