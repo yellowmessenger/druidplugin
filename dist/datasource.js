@@ -44,7 +44,9 @@ function (angular, _, dateMath, moment) {
       ['fifteen_minute', moment.duration(15, 'minute')],
       ['thirty_minute', moment.duration(30, 'minute')],
       ['hour', moment.duration(1, 'hour')],
-      ['day', moment.duration(1, 'day')]
+      ['day', moment.duration(1, 'day')],
+      ['month', moment.duration(1, 'month')],
+      ['week', moment.duration(1, 'week')]
     ];
 
     var filterTemplateExpanders = {
