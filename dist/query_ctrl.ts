@@ -43,7 +43,7 @@ export class DruidQueryCtrl extends QueryCtrl {
       "doubleSum": _.partial(this.validateSimpleAggregator.bind(this), 'doubleSum'),
       "approxHistogramFold": this.validateApproxHistogramFoldAggregator.bind(this),
       "hyperUnique": _.partial(this.validateSimpleAggregator.bind(this), 'hyperUnique'),
-      "cardinality": _.partial(this.validateSimpleAggregator.bind(this), 'cardinality'),
+      "cardinality": _.partial(this.validateCardinalityAggregator.bind(this), 'cardinality'),
       "thetaSketch": this.validateThetaSketchAggregator.bind(this)
     };
     postAggregatorValidators = {
@@ -466,6 +466,17 @@ export class DruidQueryCtrl extends QueryCtrl {
       }
       //TODO - check that fieldName is a valid metric (exists and of correct type)
       return null;
+    }
+
+    validateCardinalityAggregator(type, target) {
+        if (!target.currentAggregator.name) {
+            return "Must provide an output name for " + type + " aggregator.";
+        }
+        if (!target.currentAggregator.fields) {
+            return "Must provide a metric name for " + type + " aggregator.";
+        }
+        //TODO - check that fieldName is a valid metric (exists and of correct type)
+        return null;
     }
 
     validateApproxHistogramFoldAggregator(target) {
