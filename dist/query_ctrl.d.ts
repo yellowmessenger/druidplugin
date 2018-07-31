@@ -38,6 +38,7 @@ export declare class DruidQueryCtrl extends QueryCtrl {
         "doubleSum": any;
         "approxHistogramFold": any;
         "hyperUnique": any;
+        "cardinality": any;
         "thetaSketch": any;
     };
     postAggregatorValidators: {

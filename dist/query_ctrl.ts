@@ -43,6 +43,7 @@ export class DruidQueryCtrl extends QueryCtrl {
       "doubleSum": _.partial(this.validateSimpleAggregator.bind(this), 'doubleSum'),
       "approxHistogramFold": this.validateApproxHistogramFoldAggregator.bind(this),
       "hyperUnique": _.partial(this.validateSimpleAggregator.bind(this), 'hyperUnique'),
+      "cardinality": _.partial(this.validateSimpleAggregator.bind(this), 'cardinality'),
       "thetaSketch": this.validateThetaSketchAggregator.bind(this)
     };
     postAggregatorValidators = {
